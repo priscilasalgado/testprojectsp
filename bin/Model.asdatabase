@@ -1,0 +1,400 @@
+{
+  "name": "tabulartestsp",
+  "compatibilityLevel": 1500,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "AzureBlobs/https://satestsp blob core windows net/",
+        "connectionDetails": {
+          "protocol": "azure-blobs",
+          "address": {
+            "account": "satestsp",
+            "domain": "blob.core.windows.net"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "Key",
+          "kind": "AzureBlobs",
+          "path": "https://satestsp.blob.core.windows.net/"
+        }
+      },
+      {
+        "type": "structured",
+        "name": "SQL/testserversp database windows net;testdbsp",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "testserversp.database.windows.net",
+            "database": "testdbsp"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "Username": "adminsp",
+          "EncryptConnection": true,
+          "PrivacySetting": "Public"
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "inbox",
+        "columns": [
+          {
+            "name": "Column1",
+            "dataType": "string",
+            "sourceColumn": "Column1"
+          },
+          {
+            "name": "Column2",
+            "dataType": "string",
+            "sourceColumn": "Column2"
+          },
+          {
+            "name": "Column3",
+            "dataType": "string",
+            "sourceColumn": "Column3"
+          },
+          {
+            "name": "Column4",
+            "dataType": "string",
+            "sourceColumn": "Column4"
+          },
+          {
+            "name": "Column5",
+            "dataType": "string",
+            "sourceColumn": "Column5"
+          },
+          {
+            "name": "Column6",
+            "dataType": "string",
+            "sourceColumn": "Column6"
+          },
+          {
+            "name": "Column7",
+            "dataType": "string",
+            "sourceColumn": "Column7"
+          },
+          {
+            "name": "Column8",
+            "dataType": "string",
+            "sourceColumn": "Column8"
+          },
+          {
+            "name": "Column9",
+            "dataType": "string",
+            "sourceColumn": "Column9"
+          },
+          {
+            "name": "Column10",
+            "dataType": "string",
+            "sourceColumn": "Column10"
+          },
+          {
+            "name": "Column11",
+            "dataType": "string",
+            "sourceColumn": "Column11"
+          },
+          {
+            "name": "Column12",
+            "dataType": "string",
+            "sourceColumn": "Column12"
+          },
+          {
+            "name": "Column13",
+            "dataType": "string",
+            "sourceColumn": "Column13"
+          },
+          {
+            "name": "Column14",
+            "dataType": "string",
+            "sourceColumn": "Column14"
+          },
+          {
+            "name": "Column15",
+            "dataType": "string",
+            "sourceColumn": "Column15"
+          },
+          {
+            "name": "Column16",
+            "dataType": "string",
+            "sourceColumn": "Column16"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"AzureBlobs/https://satestsp blob core windows net/\",",
+                "    inbox1 = Source{[Name=\"inbox\"]}[Data],",
+                "    #\"https://satestsp blob core windows net/inbox/_DISCUSS_052020 xlsx\" = inbox1{[#\"Folder Path\"=\"https://satestsp.blob.core.windows.net/inbox/\",Name=\"DISCUSS_052020.xlsx\"]}[Content],",
+                "    #\"Imported Excel\" = Excel.Workbook(#\"https://satestsp blob core windows net/inbox/_DISCUSS_052020 xlsx\"),",
+                "    #\"052020_Sheet\" = #\"Imported Excel\"{[Item=\"052020\",Kind=\"Sheet\"]}[Data]",
+                "in",
+                "    #\"052020_Sheet\""
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "MEASEURE",
+            "expression": [
+              "COUNTROWS(inbox)",
+              ""
+            ]
+          }
+        ]
+      },
+      {
+        "name": "inbox2",
+        "columns": [
+          {
+            "name": "Column1",
+            "dataType": "string",
+            "sourceColumn": "Column1"
+          },
+          {
+            "name": "Column2",
+            "dataType": "string",
+            "sourceColumn": "Column2"
+          },
+          {
+            "name": "Column3",
+            "dataType": "string",
+            "sourceColumn": "Column3"
+          },
+          {
+            "name": "Column4",
+            "dataType": "string",
+            "sourceColumn": "Column4"
+          },
+          {
+            "name": "Column5",
+            "dataType": "string",
+            "sourceColumn": "Column5"
+          },
+          {
+            "name": "Column6",
+            "dataType": "string",
+            "sourceColumn": "Column6"
+          },
+          {
+            "name": "Column7",
+            "dataType": "string",
+            "sourceColumn": "Column7"
+          },
+          {
+            "name": "Column8",
+            "dataType": "string",
+            "sourceColumn": "Column8"
+          },
+          {
+            "name": "Column9",
+            "dataType": "string",
+            "sourceColumn": "Column9"
+          },
+          {
+            "name": "Column10",
+            "dataType": "string",
+            "sourceColumn": "Column10"
+          },
+          {
+            "name": "Column11",
+            "dataType": "string",
+            "sourceColumn": "Column11"
+          },
+          {
+            "name": "Column12",
+            "dataType": "string",
+            "sourceColumn": "Column12"
+          },
+          {
+            "name": "Column13",
+            "dataType": "string",
+            "sourceColumn": "Column13"
+          },
+          {
+            "name": "Column14",
+            "dataType": "string",
+            "sourceColumn": "Column14"
+          },
+          {
+            "name": "Column15",
+            "dataType": "string",
+            "sourceColumn": "Column15"
+          },
+          {
+            "name": "Column16",
+            "dataType": "string",
+            "sourceColumn": "Column16"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"AzureBlobs/https://satestsp blob core windows net/\",",
+                "    inbox1 = Source{[Name=\"inbox\"]}[Data],",
+                "    #\"https://satestsp blob core windows net/inbox/_DISCUSS_052020 xlsx\" = inbox1{[#\"Folder Path\"=\"https://satestsp.blob.core.windows.net/inbox/\",Name=\"DISCUSS_052020.xlsx\"]}[Content],",
+                "    #\"Imported Excel\" = Excel.Workbook(#\"https://satestsp blob core windows net/inbox/_DISCUSS_052020 xlsx\"),",
+                "    #\"052020_Sheet\" = #\"Imported Excel\"{[Item=\"052020\",Kind=\"Sheet\"]}[Data]",
+                "in",
+                "    #\"052020_Sheet\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DISCUSS_062020",
+        "columns": [
+          {
+            "name": "SHIP_TO",
+            "dataType": "int64",
+            "sourceColumn": "SHIP_TO"
+          },
+          {
+            "name": "SHIP_TO_NAME",
+            "dataType": "string",
+            "sourceColumn": "SHIP_TO_NAME"
+          },
+          {
+            "name": "SHIP_TO_ADDRESS",
+            "dataType": "string",
+            "sourceColumn": "SHIP_TO_ADDRESS"
+          },
+          {
+            "name": "SHIP_TO_CITY",
+            "dataType": "string",
+            "sourceColumn": "SHIP_TO_CITY"
+          },
+          {
+            "name": "SHIP_TO_STATE",
+            "dataType": "string",
+            "sourceColumn": "SHIP_TO_STATE"
+          },
+          {
+            "name": "SHIP_TO_ZIP",
+            "dataType": "string",
+            "sourceColumn": "SHIP_TO_ZIP"
+          },
+          {
+            "name": "ITEM_NUMBER",
+            "dataType": "double",
+            "sourceColumn": "ITEM_NUMBER"
+          },
+          {
+            "name": "ITEM_DESCRIPTION",
+            "dataType": "string",
+            "sourceColumn": "ITEM_DESCRIPTION"
+          },
+          {
+            "name": "ITEM_ZISE",
+            "dataType": "string",
+            "sourceColumn": "ITEM_ZISE"
+          },
+          {
+            "name": "PACK_SIZE",
+            "dataType": "string",
+            "sourceColumn": "PACK_SIZE"
+          },
+          {
+            "name": "PROOF",
+            "dataType": "int64",
+            "sourceColumn": "PROOF"
+          },
+          {
+            "name": "YEARSHIP_DATE",
+            "dataType": "int64",
+            "sourceColumn": "YEARSHIP_DATE"
+          },
+          {
+            "name": "MONTHSHIP_DATE",
+            "dataType": "int64",
+            "sourceColumn": "MONTHSHIP_DATE"
+          },
+          {
+            "name": "CATEGORY",
+            "dataType": "string",
+            "sourceColumn": "CATEGORY"
+          },
+          {
+            "name": "SHIPPED_QUANTITY",
+            "dataType": "string",
+            "sourceColumn": "SHIPPED_QUANTITY"
+          },
+          {
+            "name": "IPCCODE",
+            "dataType": "double",
+            "sourceColumn": "IPCCODE"
+          },
+          {
+            "name": "UPC_CODE",
+            "dataType": "double",
+            "sourceColumn": "UPC_CODE"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/testserversp database windows net;testdbsp\",",
+                "    dbo_DISCUSS_062020 = Source{[Schema=\"dbo\",Item=\"DISCUSS_062020\"]}[Data]",
+                "in",
+                "    dbo_DISCUSS_062020"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "e2ece3cc-f0b4-4e96-82e2-84d95b3afcbe",
+        "toCardinality": "many",
+        "fromTable": "inbox",
+        "fromColumn": "Column1",
+        "toTable": "DISCUSS_062020",
+        "toColumn": "SHIP_TO",
+        "crossFilteringBehavior": "bothDirections"
+      }
+    ],
+    "expressions": [
+      {
+        "name": "Query1",
+        "kind": "m",
+        "expression": [
+          "let",
+          "    Source = \"\"",
+          "in",
+          "    Source"
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "600"
+      }
+    ]
+  }
+}

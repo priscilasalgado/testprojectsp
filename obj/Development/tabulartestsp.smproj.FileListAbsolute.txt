@@ -1,0 +1,7 @@
+C:\Users\priscila.salgado\source\repos\tabulartestsp\tabulartestsp\bin\Model.asdatabase
+C:\Users\priscila.salgado\source\repos\tabulartestsp\tabulartestsp\bin\Model.deploymenttargets
+C:\Users\priscila.salgado\source\repos\tabulartestsp\tabulartestsp\bin\Model.deploymentoptions
+C:\Users\priscila.salgado\source\repos\tabulartestsp\tabulartestsp\obj\Development\tabulartestsp.smproj.CoreCompileInputs.cache
+C:\Users\priscila.salgado\source\repos\tabulartestsp\tabulartestsp\obj\Development\Model.asdatabase
+C:\Users\priscila.salgado\source\repos\tabulartestsp\tabulartestsp\obj\Development\Model.deploymentoptions
+C:\Users\priscila.salgado\source\repos\tabulartestsp\tabulartestsp\obj\Development\Model.deploymenttargets
